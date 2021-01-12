@@ -49,7 +49,7 @@ rm -rf $HENG_DIR/hengband/lib/save
 ln -sf $HENG_DIR/save $HENG_DIR/hengband/lib
 
 if [ ! -e $HENG_DIR/apex/scores.raw ]; then
-  cp $HENG_DIR/hengband/lib/apex/scores.raw $HENG_DIR/apex
+  touch $HENG_DIR/apex/scores.raw
 fi
 rm -rf $HENG_DIR/hengband/lib/apex
 ln -sf $HENG_DIR/apex $HENG_DIR/lib
