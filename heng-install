@@ -31,7 +31,7 @@ fi
 cd $HENG_DIR
 
 git clone --depth=1 -b $HENG_BRANCH --single-branch $HENG_GIT \
-  || printf 'Error: Download \n' ; exit 0
+  || printf 'Error: Download \n'
 
 printf 'Finished: Download \n'
 
@@ -40,11 +40,11 @@ printf 'Start: Compile \n'
 
 cd $HENG_DIR/hengband
 
-./bootstrap ||  printf 'Error: bootstrap \n' ; exit 0
+./bootstrap ||  printf 'Error: bootstrap \n'
 
-./configure --enable-xft ||  printf 'Error: configure \n' ; exit 0
+./configure --enable-xft ||  printf 'Error: configure \n'
 
-make -j4 install　|| printf 'Error: make \n' ; exit 0
+make -j4 install　|| printf 'Error: make \n'
 
 printf 'Finished: Compile \n'
 
