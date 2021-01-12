@@ -52,6 +52,6 @@ if [ ! -e $HENG_DIR/apex/scores.raw ]; then
   touch $HENG_DIR/apex/scores.raw
 fi
 rm -rf $HENG_DIR/hengband/lib/apex
-ln -sf $HENG_DIR/apex $HENG_DIR/lib
+ln -sf $HENG_DIR/apex $HENG_DIR/hengband/lib
 
 printf 'Finished: install \n'

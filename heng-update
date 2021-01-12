@@ -1,11 +1,11 @@
 #!/bin/bash
 
-brew update && brew reinstall heng ||  printf 'Error: update \n' ; exit 0
+brew update && brew reinstall heng
 
 printf 'heng-command update complete.\n'
 
 cd $HOME/hengdir/hengband
 
-git fetch && git merge ||  printf 'Error: update \n' ; exit 0
+git fetch && git merge
 
 printf 'hengband update complete.\n'
