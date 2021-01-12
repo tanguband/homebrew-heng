@@ -4,7 +4,3 @@ readonly BREW_DIR="/usr/local/opt/heng"
 readonly HENG_DIR="$HOME/.hengdir"
 
 source $HENG_DIR/heng.config || source $BREW_DIR/heng.config
-
-cd $HENG_DIR/hengband
-
-source $HENG_DIR/hengband/src/hengband -u$HENG_USER_NAME -- -n$HENG_WINDOW

@@ -46,7 +46,7 @@ printf 'Finished: Compile \n'
 
 # フォルダのリンクとファイル削除
 rm -rf $HENG_DIR/hengband/lib/save
-ln -sf $HENG_DIR/save $HENG_DIR/lib
+ln -sf $HENG_DIR/save $HENG_DIR/hengband/lib
 
 if [ ! -e $HENG_DIR/apex/scores.raw ]; then
   cp $HENG_DIR/hengband/lib/apex/scores.raw $HENG_DIR/apex
