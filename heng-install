@@ -1,0 +1,61 @@
+#!/bin/bash
+set -eux
+
+#
+readonly ANG_DIR="$HOME/.angband/Hengband"
+readonly BREW_DIR="/usr/local/opt/heng"
+readonly HENG_DIR="$HOME/.hengdir"
+readonly HENG_BRANCH="release/3.0.0Alpha"
+readonly HENG_GIT="https://scm.osdn.net/gitroot/hengband/hengband.git"
+
+# ディレクトリ設定
+mkdir -p $HENG_DIR/apex
+mkdir -p $HENG_DIR/save
+mkdir -p $HENG_DIR/old
+mkdir -p $ANG_DIR
+ln -nsf $ANG_DIR $HENG_DIR/user
+
+if [ -e $HENG_DIR/heng.config ]; then
+  mv -f $HENG_DIR/heng.config $HENG_DIR/old/heng.config_`date +"%m/%d.%H:%M"`
+fi
+
+cp $BREW_DIR/heng.config $HENG_DIR/heng.config
+
+# ソースダウンロード
+printf 'Start: Download \n'
+
+if [ -e $HENG_DIR/hengband ]; then
+  mv -rf $HENG_DIR/hengband
+fi
+  
+cd $HENG_DIR
+
+git clone --depth=1 -b $HENG_BRANCH --single-branch $HENG_GIT \
+  || printf 'Error: Download \n' ; exit 0
+
+printf 'Finished: Download \n'
+
+# コンパイル
+printf 'Start: Compile \n'
+
+cd $HENG_DIR/hengband
+
+./bootstrap ||  printf 'Error: bootstrap \n' ; exit 0
+
+./configure --enable-xft ||  printf 'Error: configure \n' ; exit 0
+
+make -j4 install　|| printf 'Error: make \n' ; exit 0
+
+printf 'Finished: Compile \n'
+
+# フォルダのリンクとファイル削除
+rm -rf $HENG_DIR/hengband/lib/save
+ln -sf $HENG_DIR/save $HENG_DIR/lib
+
+if [ ! -e $HENG_DIR/apex/scores.raw ]; then
+  cp $HENG_DIR/hengband/lib/apex/scores.raw $HENG_DIR/apex
+fi
+rm -rf $HENG_DIR/hengband/lib/apex
+ln -sf $HENG_DIR/apex $HENG_DIR/lib
+
+printf 'Finished: install \n'
