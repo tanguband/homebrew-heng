@@ -1,5 +1,5 @@
 #!/bin/bash
-set -eux
+set -eu
 
 #
 readonly ANG_DIR="$HOME/.angband/Hengband"
@@ -30,8 +30,7 @@ fi
   
 cd $HENG_DIR
 
-git clone --depth=1 -b $HENG_BRANCH --single-branch $HENG_GIT \
-  || printf 'Error: Download \n'
+git clone --depth=1 -b $HENG_BRANCH --single-branch $HENG_GIT
 
 printf 'Finished: Download \n'
 
