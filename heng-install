@@ -16,7 +16,8 @@ mkdir -p $ANG_DIR
 ln -nsf $ANG_DIR $HENG_DIR/user
 
 if [ -e $HENG_DIR/heng.config ]; then
-  mv -f $HENG_DIR/heng.config $HENG_DIR/old/heng.config_`date +"%m/%d.%H:%M"`
+  cp $HENG_DIR/heng.config $HENG_DIR/old/heng.config_`date +"%m/%d.%H:%M"`
+  rm $HENG_DIR/heng.config
 fi
 
 cp $BREW_DIR/heng.config $HENG_DIR/heng.config
