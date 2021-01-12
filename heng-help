@@ -1,7 +1,7 @@
 #!/bin/bash
-echo 'コマンド 		内容'
-echo 'heng 			変愚蛮怒を起動します'
-echo 'heng-dir		変愚ディレクトリを Finder で開きます'
-echo 'heng-install 	変愚蛮怒をインストールします'
-echo 'heng-update 	変愚蛮怒と heng コマンドを更新します。'
-echo 'heng-delete 	変愚蛮怒と heng コマンドを削除します'
+echo 'コマンド      内容'
+echo 'heng          変愚蛮怒を起動します'
+echo 'heng-dir      変愚ディレクトリを Finder で開きます'
+echo 'heng-install  変愚蛮怒をインストールします'
+echo 'heng-update   変愚蛮怒と heng コマンドを更新します。'
+echo 'heng-delete   変愚蛮怒と heng コマンドを削除します'
