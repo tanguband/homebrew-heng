@@ -40,11 +40,7 @@ printf 'Start: Compile \n'
 
 cd $HENG_DIR/hengband
 
-./bootstrap ||  printf 'Error: bootstrap \n'
-
-./configure --enable-xft ||  printf 'Error: configure \n'
-
-make -j4 install　|| printf 'Error: make \n'
+./bootstrap && ./configure --enable-xft && make -j4 install
 
 printf 'Finished: Compile \n'
 
