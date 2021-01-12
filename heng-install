@@ -25,7 +25,7 @@ cp $BREW_DIR/heng.config $HENG_DIR/heng.config
 printf 'Start: Download \n'
 
 if [ -e $HENG_DIR/hengband ]; then
-  mv -rf $HENG_DIR/hengband
+  rm -rf $HENG_DIR/hengband
 fi
   
 cd $HENG_DIR
