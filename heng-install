@@ -1,7 +1,8 @@
 #!/bin/bash
 set -eu
 
-#
+#変数定義
+
 readonly ANG_DIR="$HOME/.angband/Hengband"
 readonly BREW_DIR="/usr/local/opt/heng"
 readonly HENG_DIR="$HOME/.hengdir"
@@ -9,6 +10,7 @@ readonly HENG_BRANCH="release/3.0.0Alpha"
 readonly HENG_GIT="https://scm.osdn.net/gitroot/hengband/hengband.git"
 
 # ディレクトリ設定
+
 mkdir -p $HENG_DIR/apex
 mkdir -p $HENG_DIR/save
 mkdir -p $HENG_DIR/old
@@ -22,6 +24,7 @@ fi
 cp $BREW_DIR/heng.config $HENG_DIR/heng.config
 
 # ソースダウンロード
+
 printf 'Start: Download \n'
 
 if [ -e $HENG_DIR/hengband ]; then
@@ -35,6 +38,7 @@ git clone --depth=1 -b $HENG_BRANCH --single-branch $HENG_GIT
 printf 'Finished: Download \n'
 
 # コンパイル
+
 printf 'Start: Compile \n'
 
 cd $HENG_DIR/hengband
@@ -44,6 +48,7 @@ cd $HENG_DIR/hengband
 printf 'Finished: Compile \n'
 
 # フォルダのリンクとファイル削除
+
 rm -rf $HENG_DIR/hengband/lib/save
 ln -sf $HENG_DIR/save $HENG_DIR/hengband/lib
 
