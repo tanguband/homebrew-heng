@@ -1,2 +1,2 @@
 #!/bin/bash
-open $HOME/.heng_dir
+open $HOME/.heng_dir || echo '先に heng-install を実行してください'
