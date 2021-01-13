@@ -17,6 +17,7 @@ class Heng < Formula
     bin.install "heng-help"
     bin.install "heng-install"
     bin.install "heng-update"
+    bin.install "heng-web"
     prefix.install "heng.config"
   end
 
