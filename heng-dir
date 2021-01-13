@@ -1,2 +1,2 @@
 #!/bin/bash
-open $HOME/.hengdir
+open $HOME/.heng_dir

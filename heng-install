@@ -5,7 +5,7 @@ set -eu
 
 readonly ANG_DIR="$HOME/.angband/Hengband"
 readonly BREW_DIR="/usr/local/opt/heng"
-readonly HENG_DIR="$HOME/.hengdir"
+readonly HENG_DIR="$HOME/.heng_dir"
 readonly HENG_BRANCH="release/3.0.0Alpha"
 readonly HENG_GIT="https://scm.osdn.net/gitroot/hengband/hengband.git"
 
@@ -18,7 +18,7 @@ mkdir -p $ANG_DIR
 ln -nsf $ANG_DIR $HENG_DIR/user
 
 if [ -e $HENG_DIR/heng.config ]; then
-  mv -f $HENG_DIR/heng.config $HENG_DIR/old/heng.config`date +"%m%d%H%M"`
+  mv -f $HENG_DIR/heng.config $HENG_DIR/old/heng.config_`date +"%m%d%H%M"`
 fi
 
 cp $BREW_DIR/heng.config $HENG_DIR/heng.config
