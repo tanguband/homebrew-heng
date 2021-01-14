@@ -5,6 +5,7 @@ set -eu
 
 readonly ANG_DIR="$HOME/.angband/Hengband"
 readonly BREW_DIR="/usr/local/opt/heng"
+readonly HENG_CONFIG_VERSION=01
 readonly HENG_DIR="$HOME/.heng_dir"
 readonly HENG_BRANCH="release/3.0.0Alpha"
 readonly HENG_GIT="https://scm.osdn.net/gitroot/hengband/hengband.git"
@@ -13,15 +14,9 @@ readonly HENG_GIT="https://scm.osdn.net/gitroot/hengband/hengband.git"
 
 mkdir -p $HENG_DIR/apex
 mkdir -p $HENG_DIR/save
-mkdir -p $HENG_DIR/old
 mkdir -p $ANG_DIR
 ln -nsf $ANG_DIR $HENG_DIR/user
-
-if [ -e $HENG_DIR/heng.config ]; then
-  mv -f $HENG_DIR/heng.config $HENG_DIR/old/heng.config_`date +"%m%d%H%M"`
-fi
-
-cp $BREW_DIR/heng.config $HENG_DIR/heng.config
+cp $BREW_DIR/heng.config $HENG_DIR/${HENG_CONFIG_VERSION}_heng.config
 
 # ソースダウンロード
 
