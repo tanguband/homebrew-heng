@@ -2,7 +2,6 @@
 set -eu
 
 #変数設定
-
 readonly ANG_DIR="$HOME/.angband/Hengband"
 readonly BREW_DIR="/usr/local/opt/heng"
 readonly HENG_CONFIG_VERSION=01
@@ -11,7 +10,6 @@ readonly HENG_BRANCH="release/3.0.0Alpha"
 readonly HENG_GIT="https://scm.osdn.net/gitroot/hengband/hengband.git"
 
 # ディレクトリ設定
-
 mkdir -p $HENG_DIR/apex
 mkdir -p $HENG_DIR/save
 mkdir -p $ANG_DIR
@@ -19,21 +17,16 @@ ln -nsf $ANG_DIR $HENG_DIR/user
 cp $BREW_DIR/heng.config $HENG_DIR/${HENG_CONFIG_VERSION}_heng.config
 
 # ソースダウンロード
-
-printf 'Start: Download \n'
-
+printf 'Downloading... Please wait a moment.\n'
 if [ -e $HENG_DIR/hengband ]; then
   rm -rf $HENG_DIR/hengband
 fi
-  
 cd $HENG_DIR
-
 git clone --depth=1 -b $HENG_BRANCH --single-branch $HENG_GIT
 sleep 5
-printf 'Finished: Download \n'
+printf 'Download is finished.\n'
 
 # 文字コード変換
-
 nkf -e --overwrite $HENG_DIR/hengband/src/*.c
 
 nkf -e --overwrite $HENG_DIR/hengband/src/a*/*.c
@@ -75,24 +68,16 @@ nkf -e --overwrite $HENG_DIR/hengband/src/u*/*.h
 nkf -e --overwrite $HENG_DIR/hengband/src/w*/*.h
 
 # コンパイル
-
-printf 'Start: Compile \n'
-
+printf 'Installing... Please wait a moment.\n'
 cd $HENG_DIR/hengband
-
-./bootstrap && ./configure --enable-xft && make -j4 install
-
-printf 'Finished: Compile \n'
+./bootstrap && ./configure --enable-xft && make -j4 install >../_heng_log 2>&1
 
 # フォルダのリンクとファイル削除
-
 rm -rf $HENG_DIR/hengband/lib/save
 ln -sf $HENG_DIR/save $HENG_DIR/hengband/lib
-
 if [ ! -e $HENG_DIR/apex/scores.raw ]; then
   touch $HENG_DIR/apex/scores.raw
 fi
 rm -rf $HENG_DIR/hengband/lib/apex
 ln -sf $HENG_DIR/apex $HENG_DIR/hengband/lib
-
-printf 'Finished: install \n'
+printf 'Install is finished.\n'
