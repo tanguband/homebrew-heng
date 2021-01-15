@@ -1,3 +1,7 @@
 #!/bin/bash
-
-brew update && brew reinstall heng && heng-install
+echo
+echo "　Homebrew アップデート中　"
+echo
+brew update &&
+brew reinstall heng &&
+heng-install

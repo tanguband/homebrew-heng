@@ -1,12 +1,16 @@
 #!/bin/bash
 set -eu
 
+echo
+echo "　インストール開始　"
+echo
+
 #変数設定
 readonly ANG_DIR="$HOME/.angband/Hengband"
 readonly BREW_DIR="/usr/local/opt/heng"
 readonly HENG_CONFIG_VERSION=01
 readonly HENG_DIR="$HOME/.heng_dir"
-readonly HENG_BRANCH="release/3.0.0Alpha"
+readonly HENG_BRANCH="develop/3.0.0.1Alpha"
 readonly HENG_GIT="https://scm.osdn.net/gitroot/hengband/hengband.git"
 
 # ディレクトリ設定
@@ -69,6 +73,10 @@ nkf -e --overwrite $HENG_DIR/hengband/src/w*/*.h
 cd $HENG_DIR/hengband
 ./bootstrap &&
 ./configure --enable-xft &&
+echo
+echo "　コンパイル開始　しばらくお待ち下さい　"
+echo
+sleep 2 &&
 make -j4 install 2>/dev/null
 
 # フォルダのリンクとファイル削除
@@ -82,5 +90,5 @@ fi
 rm -rf $HENG_DIR/hengband/lib/apex
 ln -sf $HENG_DIR/apex $HENG_DIR/hengband/lib
 echo
-printf 'Install is finished.\n'
+echo "　インストール完了　"
 echo
