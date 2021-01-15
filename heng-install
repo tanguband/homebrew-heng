@@ -17,14 +17,12 @@ ln -nsf $ANG_DIR $HENG_DIR/user
 cp $BREW_DIR/heng.config $HENG_DIR/${HENG_CONFIG_VERSION}_heng.config
 
 # ソースダウンロード
-printf 'Downloading... Please wait a moment.\n'
 if [ -e $HENG_DIR/hengband ]; then
   rm -rf $HENG_DIR/hengband
 fi
 cd $HENG_DIR
 git clone --depth=1 -b $HENG_BRANCH --single-branch $HENG_GIT
 sleep 5
-printf 'Download is finished.\n'
 
 # 文字コード変換
 nkf -e --overwrite $HENG_DIR/hengband/src/*.c
@@ -68,16 +66,21 @@ nkf -e --overwrite $HENG_DIR/hengband/src/u*/*.h
 nkf -e --overwrite $HENG_DIR/hengband/src/w*/*.h
 
 # コンパイル
-printf 'Installing... Please wait a moment.\n'
 cd $HENG_DIR/hengband
-./bootstrap && ./configure --enable-xft && make -j4 install >../_heng_log 2>&1
+./bootstrap &&
+./configure --enable-xft &&
+make -j4 install 2>/dev/null
 
 # フォルダのリンクとファイル削除
 rm -rf $HENG_DIR/hengband/lib/save
 ln -sf $HENG_DIR/save $HENG_DIR/hengband/lib
+
 if [ ! -e $HENG_DIR/apex/scores.raw ]; then
   touch $HENG_DIR/apex/scores.raw
 fi
+
 rm -rf $HENG_DIR/hengband/lib/apex
 ln -sf $HENG_DIR/apex $HENG_DIR/hengband/lib
+echo
 printf 'Install is finished.\n'
+echo
