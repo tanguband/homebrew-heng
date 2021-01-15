@@ -35,8 +35,44 @@ printf 'Finished: Download \n'
 # 文字コード変換
 
 nkf -e --overwrite $HENG_DIR/hengband/src/*.c
-nkf -e --overwrite $HENG_DIR/hengband/src/*/*.c
-nkf -e --overwrite $HENG_DIR/hengband/src/*/*.h
+
+nkf -e --overwrite $HENG_DIR/hengband/src/a*/*.c
+nkf -e --overwrite $HENG_DIR/hengband/src/b*/*.c
+nkf -e --overwrite $HENG_DIR/hengband/src/c*/*.c
+nkf -e --overwrite $HENG_DIR/hengband/src/d*/*.c
+nkf -e --overwrite $HENG_DIR/hengband/src/e*/*.c
+nkf -e --overwrite $HENG_DIR/hengband/src/f*/*.c
+nkf -e --overwrite $HENG_DIR/hengband/src/g*/*.c
+nkf -e --overwrite $HENG_DIR/hengband/src/i*/*.c
+nkf -e --overwrite $HENG_DIR/hengband/src/k*/*.c
+nkf -e --overwrite $HENG_DIR/hengband/src/l*/*.c
+nkf -e --overwrite $HENG_DIR/hengband/src/m*/*.c
+nkf -e --overwrite $HENG_DIR/hengband/src/o*/*.c
+nkf -e --overwrite $HENG_DIR/hengband/src/p*/*.c
+nkf -e --overwrite $HENG_DIR/hengband/src/r*/*.c
+nkf -e --overwrite $HENG_DIR/hengband/src/s*/*.c
+nkf -e --overwrite $HENG_DIR/hengband/src/t*/*.c
+nkf -e --overwrite $HENG_DIR/hengband/src/u*/*.c
+nkf -e --overwrite $HENG_DIR/hengband/src/w*/*.c
+
+nkf -e --overwrite $HENG_DIR/hengband/src/a*/*.h
+nkf -e --overwrite $HENG_DIR/hengband/src/b*/*.h
+nkf -e --overwrite $HENG_DIR/hengband/src/c*/*.h
+nkf -e --overwrite $HENG_DIR/hengband/src/d*/*.h
+nkf -e --overwrite $HENG_DIR/hengband/src/e*/*.h
+nkf -e --overwrite $HENG_DIR/hengband/src/f*/*.h
+nkf -e --overwrite $HENG_DIR/hengband/src/g*/*.h
+nkf -e --overwrite $HENG_DIR/hengband/src/i*/*.h
+nkf -e --overwrite $HENG_DIR/hengband/src/k*/*.h
+nkf -e --overwrite $HENG_DIR/hengband/src/l*/*.h
+nkf -e --overwrite $HENG_DIR/hengband/src/m*/*.h
+nkf -e --overwrite $HENG_DIR/hengband/src/o*/*.h
+nkf -e --overwrite $HENG_DIR/hengband/src/p*/*.h
+nkf -e --overwrite $HENG_DIR/hengband/src/r*/*.h
+nkf -e --overwrite $HENG_DIR/hengband/src/s*/*.h
+nkf -e --overwrite $HENG_DIR/hengband/src/t*/*.h
+nkf -e --overwrite $HENG_DIR/hengband/src/u*/*.h
+nkf -e --overwrite $HENG_DIR/hengband/src/w*/*.h
 
 # コンパイル
 
