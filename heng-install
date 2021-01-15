@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eu
 
-#変数定義
+#変数設定
 
 readonly ANG_DIR="$HOME/.angband/Hengband"
 readonly BREW_DIR="/usr/local/opt/heng"
@@ -29,8 +29,14 @@ fi
 cd $HENG_DIR
 
 git clone --depth=1 -b $HENG_BRANCH --single-branch $HENG_GIT
-
+sleep 5
 printf 'Finished: Download \n'
+
+# 文字コード変換
+
+nkf -e --overwrite $HENG_DIR/hengband/src/*.c
+nkf -e --overwrite $HENG_DIR/hengband/src/*/*.c
+nkf -e --overwrite $HENG_DIR/hengband/src/*/*.h
 
 # コンパイル
 
