@@ -76,7 +76,7 @@ cd $HENG_DIR/hengband
 echo
 echo "　コンパイル開始　しばらくお待ち下さい　"
 echo
-sleep 2 &&
+sleep 3 &&
 make -j4 install 2>/dev/null
 
 # フォルダのリンクとファイル削除
