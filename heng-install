@@ -10,7 +10,7 @@ readonly ANG_DIR="$HOME/.angband/Hengband"
 readonly BREW_DIR="/usr/local/opt/heng"
 readonly HENG_CONFIG_VERSION=01
 readonly HENG_DIR="$HOME/.heng_dir"
-readonly HENG_BRANCH="develop/3.0.0.1Alpha"
+readonly HENG_BRANCH="feature/Fix-Ninja-Monk-Weapon-Check"
 readonly HENG_GIT="https://scm.osdn.net/gitroot/hengband/hengband.git"
 
 # ディレクトリ設定
