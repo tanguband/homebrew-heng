@@ -18,6 +18,9 @@ mkdir -p $HENG_DIR/apex
 mkdir -p $HENG_DIR/save
 mkdir -p $ANG_DIR
 ln -nsf $ANG_DIR $HENG_DIR/user
+if [ ! -e $HENG_DIR/heng.config ]; then
+  cp $BREW_DIR/heng.config $HENG_DIR/heng.config
+fi
 cp $BREW_DIR/heng.config $HENG_DIR/${HENG_CONFIG_VERSION}_heng.config
 
 # ソースダウンロード
