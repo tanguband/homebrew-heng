@@ -16,9 +16,11 @@ class Heng < Formula
     bin.install "heng-dir"
     bin.install "heng-help"
     bin.install "heng-install"
+    bin.install "heng-mod"
     bin.install "heng-update"
     bin.install "heng-web"
     prefix.install "heng.config"
+    prefix.install "mod"
   end
 
   test do
