@@ -20,7 +20,7 @@ class Heng < Formula
     bin.install "heng-update"
     bin.install "heng-web"
     prefix.install "heng.config"
-    prefix.install "mod"
+    prefix.install ".mod"
   end
 
   test do

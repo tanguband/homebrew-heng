@@ -14,6 +14,10 @@ readonly HENG_BRANCH="develop"
 readonly HENG_GIT="https://scm.osdn.net/gitroot/hengband/hengband.git"
 
 # ディレクトリ設定
+if [ -e $HENG_DIR/mod ]; then
+  rm -rf $HENG_DIR/mod
+fi
+
 mkdir -p $HENG_DIR/apex
 mkdir -p $HENG_DIR/save
 mkdir -p $ANG_DIR
@@ -21,11 +25,10 @@ ln -nsf $ANG_DIR $HENG_DIR/user
 if [ ! -e $HENG_DIR/heng.config ]; then
   cp $BREW_DIR/heng.config $HENG_DIR/heng.config
 fi
-if [ -e $HENG_DIR/mod ]; then
-  rm -rf $HENG_DIR/mod
+if [ -e $HENG_DIR/.mod ]; then
+  rm -rf $HENG_DIR/.mod
 fi
-cp -R $BREW_DIR/mod $HENG_DIR
-cp $BREW_DIR/heng.config $HENG_DIR/${HENG_CONFIG_VERSION}_heng.config
+cp -R $BREW_DIR/.mod $HENG_DIR
 
 # ソースダウンロード
 if [ -e $HENG_DIR/hengband ]; then

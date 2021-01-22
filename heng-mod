@@ -6,7 +6,7 @@ readonly HENG_DIR="$HOME/.heng_dir"
 readonly HENG_BRANCH="develop"
 readonly HENG_GIT="https://scm.osdn.net/gitroot/hengband/hengband.git"
 
-readonly MOD_DIR="$HOME/.heng_dir/mod"
+readonly MOD_DIR="$HOME/.heng_dir/.mod"
 readonly EDIT_DIR="$HOME/.heng_dir/hengband/lib/edit"
 readonly SRC_DIR="$HOME/.heng_dir/hengband/src"
 
@@ -86,7 +86,7 @@ nkf -e --overwrite $HENG_DIR/hengband/src/w*/*.h
 # コンパイル
 cd $HENG_DIR/hengband
 ./bootstrap &&
-./configure --enable-xft  &&
+./configure --enable-xft --disable-worldscore &&
 make -j4 install 
 
 # フォルダのリンクとファイル削除
