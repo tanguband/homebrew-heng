@@ -86,8 +86,8 @@ nkf -e --overwrite $HENG_DIR/hengband/src/w*/*.h
 # コンパイル
 cd $HENG_DIR/hengband
 ./bootstrap &&
-./configure --enable-xft --disable-worldscore &&
-make -j4 install 
+./configure --enable-xft &&
+make -j4 install 2>/dev/null
 
 # フォルダのリンクとファイル削除
 rm -rf $HENG_DIR/hengband/lib/save
