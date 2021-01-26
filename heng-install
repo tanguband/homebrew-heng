@@ -28,7 +28,6 @@ fi
 if [ -e $HENG_DIR/.mod ]; then
   rm -rf $HENG_DIR/.mod
 fi
-cp -R $BREW_DIR/.mod $HENG_DIR
 
 # ソースダウンロード
 if [ -e $HENG_DIR/hengband ]; then
