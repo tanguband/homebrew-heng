@@ -10,8 +10,8 @@ readonly ANG_DIR="$HOME/.angband/Hengband"
 readonly BREW_DIR="/usr/local/opt/heng"
 readonly HENG_CONFIG_VERSION=01
 readonly HENG_DIR="$HOME/.heng_dir"
-readonly HENG_BRANCH="develop"
-readonly HENG_GIT="https://scm.osdn.net/gitroot/hengband/hengband.git"
+readonly HENG_BRANCH="master"
+readonly HENG_GIT="https://github.com/hengband/hengband.git"
 
 # ディレクトリ設定
 if [ -e $HENG_DIR/mod ]; then
